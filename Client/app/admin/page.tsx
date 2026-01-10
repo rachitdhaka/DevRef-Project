@@ -30,7 +30,7 @@ export default function AdminPage() {
 
     try {
       const response = await fetch(
-        "http://localhost:1000/admin/add-component",
+        "https://devref-project.onrender.com/admin/add-component",
         {
           method: "POST",
           headers: {

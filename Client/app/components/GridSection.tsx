@@ -19,7 +19,7 @@ export const GridSection = () => {
   useEffect(() => {
     const fetchComponents = async () => {
       try {
-        const response = await fetch("http://localhost:1000/all");
+        const response = await fetch("https://devref-project.onrender.com/all");
         const data = await response.json();
         setComponents(data);
       } catch (error) {
