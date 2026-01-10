@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 
-const { AdminRouter } = require("./router/admin");
+const { AdminRouter } = require("./Router/admin");
 
 app.use(cors());
 app.use("/admin", AdminRouter);
