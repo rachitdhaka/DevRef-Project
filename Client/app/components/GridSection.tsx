@@ -45,8 +45,8 @@ export const GridSection = () => {
 
   if (loading) {
     return (
-      <section className="max-w-5xl p-2 mx-auto mt-10">
-        <div className="grid grid-cols-3 gap-4 p-4">
+      <section className="max-w-5xl px-4 sm:px-6 lg:px-2 mx-auto mt-6 sm:mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-2 sm:p-4">
           {[1, 2, 3].map((i) => (
             <div
               key={i}
@@ -59,20 +59,21 @@ export const GridSection = () => {
   }
 
   return (
-    <section className="max-w-5xl p-2 mx-auto mt-10 ">
-      <div className="grid grid-cols-3 gap-4 p-4">
+    <section className="max-w-5xl px-4 sm:px-6 lg:px-2 mx-auto mt-6 sm:mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-2 sm:p-4">
         {components.map((item) => (
           <div
             key={item._id}
-            className="w-full h-full rounded-2xl overflow-hidden border dark:border-neutral-800 border-neutral-400"
+            className="w-full h-full rounded-2xl overflow-hidden border dark:border-neutral-800 border-neutral-400 transition-transform hover:scale-[1.02] duration-200"
           >
-            <div>
+            <div className="aspect-video">
               {isVideo(item.mediaLink) ? (
                 <video
                   className="w-full h-full object-cover"
                   muted
                   loop
                   autoPlay
+                  playsInline
                 >
                   <source src={item.mediaLink} type="video/mp4" />
                 </video>
@@ -84,22 +85,22 @@ export const GridSection = () => {
                 />
               )}
             </div>
-            <div className="px-2 py-4">
-              <p className="text-lg text-neutral-900 dark:text-neutral-300">
+            <div className="px-3 sm:px-2 py-3 sm:py-4">
+              <p className="text-base sm:text-lg text-neutral-900 dark:text-neutral-300">
                 {item.componentName}
               </p>
               {item.inspiredPerson && (
-                <>
-                  <span className="text-sm text-neutral-600">
+                <div className="mt-1">
+                  <span className="text-xs sm:text-sm text-neutral-600">
                     Inspired By :{" "}
                   </span>
                   <Link
                     href={item.inspiredLink}
-                    className="hover:text-sky-500 transition-all duration-200 ease-in-out"
+                    className="text-xs sm:text-sm hover:text-sky-500 transition-all duration-200 ease-in-out"
                   >
                     {item.inspiredPerson}
                   </Link>
-                </>
+                </div>
               )}
             </div>
           </div>
